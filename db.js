@@ -14,6 +14,5 @@ module.exports = {
                 return cb(err); // מפעיל את ה-callback עם השגיאה
             });
     },
-
     getDb: () => dbConnection // פונקציה שמחזירה את החיבור למסד לשימוש חיצוני
 };
