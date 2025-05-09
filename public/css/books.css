@@ -1,0 +1,77 @@
+body {
+    background-color: #f7f9fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.books-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.books-header h2 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.books-header a.btn {
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.book-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-card h3 {
+    margin-top: 0;
+    color: #222;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    margin: 4px 0;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.book-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-actions .btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+.book-actions .btn.delete {
+    background: #ff4d4f;
+    color: #fff;
+}
+
+.book-actions .btn.edit {
+    background: #1890ff;
+    color: #fff;
+}

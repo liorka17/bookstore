@@ -1,0 +1,29 @@
+.site-header {
+    background-color: #3f51b5;
+    color: white;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.site-header nav {
+    margin-top: 10px;
+}
+
+.site-header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.site-footer {
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 40px;
+}

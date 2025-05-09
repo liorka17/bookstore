@@ -1,22 +1,19 @@
+const http = require('http');                     // מייבא את המודול המובנה http – משמש ליצירת שרת HTTP פשוט
+const app = require('./app');                     // מייבא את קובץ app.js שמכיל את הגדרות ה־Express, ראוטים, תצוגות וכו'
+const { connectToDb } = require('./db');          // מייבא את הפונקציה שמתחברת למסד הנתונים (MongoDB)
+const PORT = process.env.PORT || 5000;            // מגדיר את הפורט שהשרת יאזין עליו – לפי משתנה סביבה או 5000 כברירת מחדל
 
-const http = require('http'); // מייבא את המודול 'http' שמובנה ב-Node.js כדי ליצור שרת HTTP
-const app = require('./app'); // מייבא את הקובץ app.js שמכיל את ההגדרות של האפליקציה (למשל Express)
-const PORT = process.env.PORT || 5000; 
-const { connectToDb } = require('./db');
-const routes = require('./routes/route');
+connectToDb((err) => {                            // קורא לפונקציית התחברות למסד – ומעביר לה callback
+    if (!err) {                                   // אם אין שגיאה (התחברות הצליחה):
+        console.log("✅ Connected to DB");        // מדפיס שהחיבור הצליח
 
-connectToDb((err) => {
-    if (!err) {
-        console.log("✅ Connected to DB");
-        app.use('/', routes);
+        const server = http.createServer(app);    // יוצר שרת HTTP על בסיס אפליקציית Express שהוגדרה ב־app.js
+
+        server.listen(PORT, '0.0.0.0', () => {     // מאזין על כל כתובות ה-IP (0.0.0.0) בפורט שהוגדר
+            console.log(`Server started on port ${PORT}`); // מדפיס שהשרת התחיל לפעול
+        });
+
     } else {
-        console.log("❌ Failed to connect to DB");
+        console.log("❌ Failed to connect to DB"); // אם הייתה שגיאה – מדפיס שנכשל בהתחברות למסד הנתונים
     }
 });
-const server = http.createServer(app); // יוצר מופע של שרת HTTP שמשתמש באפליקציה שייבאנו (בדר"כ Express)
-server.listen(PORT, '0.0.0.0', () => { // מפעיל את השרת שיאזין על כל כתובות ה-IP של השרת ('0.0.0.0') בפורט שהגדרנו
-    console.log(`Server started on port ${PORT}`); // מדפיס ללוג שהשרת התחיל לפעול עם מספר הפורט
-    
-});
-
-

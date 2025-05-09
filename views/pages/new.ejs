@@ -1,0 +1,16 @@
+<h2>הוסף ספר חדש</h2>
+
+<form action="/books" method="POST">
+    <label for="title">כותר:</label>
+    <input type="text" name="title" id="title" required>
+
+    <label for="author">מחבר:</label>
+    <input type="text" name="author" id="author" required>
+
+    <label for="price">מחיר:</label>
+    <input type="number" name="price" id="price" step="0.01" required>
+
+    <button type="submit">הוסף</button>
+</form>
+
+<a href="/">⬅ חזרה לרשימה</a>
